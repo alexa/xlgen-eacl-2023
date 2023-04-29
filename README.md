@@ -27,21 +27,21 @@ bash ./cluster/run_cluster.sh EUR-Lex t5-base
 
 #### Running XLGen models
 
-1. Train XLGen_ base / XLGen_bcl / XGLEN_mcg models
+1. Train XLGen-base / XLGen-bcl / XGLEN-mcg
 ```
 bash ./xlgen/run_train.sh EUR-Lex t5-base base
 bash ./xlgen/run_train.sh EUR-Lex t5-base bcl
 bash ./xlgen/run_train.sh EUR-Lex t5-base mcg
 ```
 
-2. Inference for XLGen_ base / XLGen_bcl / XGLEN_mcg models
+2. Inference for XLGen-base / XLGen-bcl / XGLEN-mcg
 ```
 bash ./xlgen/run_test.sh EUR-Lex t5-base base
 bash ./xlgen/run_test.sh EUR-Lex t5-base bcl
 bash ./xlgen/run_test.sh EUR-Lex t5-base mcg
 ```
 
-#### Evaluation with Fscores (+ precision@K)
+#### Evaluation
 ```
 bash ./evaluation/run_fscores.sh EUR-Lex t5-base base
 bash ./evaluation/run_fscores.sh EUR-Lex t5-base bcl
