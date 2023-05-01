@@ -49,9 +49,10 @@ bash ./evaluation/run_fscores.sh EUR-Lex t5-base mcg
 ```
 
 ## Citation
-    @article{jung2023cluster,
-    title={Cluster-Guided Label Generation in Extreme Multi-Label Classification},
-    author={Jung, Taehee and Kim, Joo-Kyung and Lee, Sungjin and Kang, Dongyeop},
-    journal={arXiv preprint arXiv:2302.09150},
-    year={2023}
+   @Inproceedings{Jung2023,
+    author = {Taehee Jung and Joo-Kyung Kim and Sungjin Lee and Dongyeop Kang},
+    title = {Cluster-guided label generation in extreme multi-label classification},
+    year = {2023},
+    url = {https://www.amazon.science/publications/cluster-guided-label-generation-in-extreme-multi-label-classification},
+    booktitle = {EACL 2023},
     }
