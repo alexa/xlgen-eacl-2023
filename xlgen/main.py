@@ -251,7 +251,7 @@ def main(model_args, data_args, training_args):
     )
 
     config.cluster_size = cluster_size
-    #Configuration setups for bce training
+    #Configuration setups for bcl training
     max_cluster_size = 0
     if 'bcl' in data_args.label_type:
         data_args.use_cluster = True

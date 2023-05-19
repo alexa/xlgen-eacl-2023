@@ -170,7 +170,7 @@ class Trainer(object):
                     train_dataloader = DataLoader(self.train_dataset, sampler=train_sampler, batch_size=self.args.train_batch_size)
 
             #train size for MultiCluster will be 1/epoch --> decreasing
-            if self.data_args.label_type == 'decoder-sep' and self.args.annealing:
+            if self.data_args.label_type == 'mcg' and self.args.annealing:
                 #add loss weight in here and update it every epoch
                 self.train_dataset = add_loss_weight(self.train_dataset,epoch,self.args.max_out_seq_len)
                 train_sampler = RandomSampler(self.train_dataset)
@@ -200,7 +200,7 @@ class Trainer(object):
                     lambda_denom = 1
                     if self.args.annealing:
                         lambda_denom = epoch
-                    #MAKE SURE WE HAVE DIFFERENT DATA ORDER FROM BCE_SEP
+                    #MAKE SURE WE HAVE DIFFERENT DATA ORDER FROM bcl
                     inputs = {'input_ids':      batch[0],
                             'attention_mask': batch[1],
                             'decoder_input_ids': batch[2],
@@ -209,7 +209,7 @@ class Trainer(object):
                             'cluster_labels': batch[5],
                             'lambda_denom': lambda_denom, } #bce loss --> 1/lambda_denom
 
-                elif self.data_args.label_type=='decoder-sep' and self.args.annealing:
+                elif self.data_args.label_type=='mcg' and self.args.annealing:
                     #TODO input with weight
                     inputs= {'input_ids':      batch[0],
                           'attention_mask': batch[1],
@@ -344,7 +344,7 @@ class Trainer(object):
                                                     self.data_args.cluster_type)
                         cluster_list = np.array(cluster_list)
 
-                if self.data_args.label_type == 'decoder-sep':
+                if self.data_args.label_type == 'mcg':
                     #First, get predicted cluster_id for generate input
                     inputs['top_k'] = 1
                     inputs['no_repeat_ngram_size'] = 1

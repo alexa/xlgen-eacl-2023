@@ -135,7 +135,7 @@ class TrainingArguments(TrainingArguments):
     num_return_sequences: Optional[int] = field(
       default=1,metadata={"help": "TBW"})
 
-    ## number of clusters in input ids if bce training
+    ## number of clusters in input ids if bcl training
     input_cluster_length:Optional[int] = field(
       default=0,
       metadata={"help": "tbw"},
@@ -257,7 +257,7 @@ class DataTrainingArguments:
       metadata={"help": "The input data dir"},
     )
 
-    ## For bce thold
+    ## For bcl thold
     bce_thold: Optional[float] = field(
-            default=0.5, metadata={"help": "bce thold"})
+            default=0.5, metadata={"help": "bcl thold"})
 
